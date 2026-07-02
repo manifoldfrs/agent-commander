@@ -61,6 +61,31 @@ The dotfiles-managed `agent-commander install <tool>` command initializes these 
 Use `agent-commander install all` to initialize and build the full pinned toolchain.
 It also writes generated command shims into `bin/`; run `agent-commander shims` to refresh them without reinstalling tools.
 
+Fresh-shell validation:
+
+```sh
+exec zsh -l
+agent-commander doctor
+command -v gh-axi chrome-devtools-axi lavish-axi no-mistakes treehouse fm-bootstrap.sh
+gh-axi --help
+chrome-devtools-axi --help
+lavish-axi --help
+no-mistakes --help
+treehouse --help
+```
+
+Work-laptop setup:
+
+```sh
+mkdir -p ~/github
+git clone git@github.com:manifoldfrs/dotfiles.git ~/github/dotfiles
+git clone https://github.com/manifoldfrs/agent-commander ~/github/agent-commander
+cd ~/github/dotfiles
+./scripts/stow.sh --cb apply
+agent-commander install all
+agent-commander doctor
+```
+
 ## Local Config
 
 Machine-specific config is local and ignored. Recommended initial files:
