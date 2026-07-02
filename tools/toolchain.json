@@ -1,0 +1,46 @@
+{
+  "tools": [
+    {
+      "name": "firstmate",
+      "upstream": "https://github.com/kunchenguid/firstmate.git",
+      "pinnedRevision": "e93620331ed4b5814638480a862ad0b16920a6f2",
+      "localPath": "libs/firstmate",
+      "globalCommands": [
+        "fm-bootstrap.sh"
+      ],
+      "localIndicators": [
+        "AGENTS.md",
+        "bin/fm-bootstrap.sh",
+        "bin/fm-spawn.sh",
+        "bin/fm-send.sh"
+      ]
+    },
+    {
+      "name": "treehouse",
+      "upstream": "https://github.com/kunchenguid/treehouse.git",
+      "pinnedRevision": "68fa3d2556542add76bf80255787b8625a5041a6",
+      "localPath": "libs/treehouse",
+      "globalCommands": [
+        "treehouse"
+      ],
+      "localIndicators": [
+        "treehouse",
+        "go.mod",
+        "main.go"
+      ]
+    },
+    {
+      "name": "lavish-axi",
+      "upstream": "https://github.com/kunchenguid/lavish-axi.git",
+      "pinnedRevision": "445022e9ce81862521cfaf4d72dcb271d8b38e08",
+      "localPath": "libs/lavish-axi",
+      "globalCommands": [
+        "lavish-axi"
+      ],
+      "localIndicators": [
+        "package.json",
+        "dist/cli.mjs"
+      ]
+    }
+  ]
+}
