@@ -1,0 +1,10 @@
+.env
+config/
+data/
+state/
+projects/
+.no-mistakes/
+treehouse/
+libs/*/node_modules/
+logs/
+*.log
