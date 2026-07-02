@@ -1,6 +1,6 @@
 # agent-commander
 
-Public operating home for firstmate, treehouse, lavish-axi, and related agent harness work.
+Public operating home for firstmate, treehouse, no-mistakes, AXI tools, and related agent harness work.
 
 This repository owns local runtime configuration and state for agent workflows. The sibling `dotfiles` repository remains the reproducible installer/config layer and should only manage the shared launcher, docs, Stow validation, and ignore hardening.
 
@@ -11,6 +11,9 @@ agent-commander/
 |-- libs/
 |   |-- firstmate/
 |   |-- treehouse/
+|   |-- no-mistakes/
+|   |-- gh-axi/
+|   |-- chrome-devtools-axi/
 |   `-- lavish-axi/
 |-- scripts/
 |-- config/
@@ -32,7 +35,7 @@ tools/toolchain.json
 Initialize pinned tool checkouts after cloning this repo:
 
 ```sh
-git submodule update --init libs/firstmate libs/treehouse libs/lavish-axi
+git submodule update --init libs/firstmate libs/treehouse libs/no-mistakes libs/gh-axi libs/chrome-devtools-axi libs/lavish-axi
 ```
 
 The detector prefers global commands and falls back to local submodule checkouts under `libs/`:
@@ -45,12 +48,16 @@ scripts/detect-tools.sh --strict
 Detected tools:
 
 ```text
-firstmate   fm-bootstrap.sh or libs/firstmate
-treehouse   treehouse or libs/treehouse
-lavish-axi  lavish-axi or libs/lavish-axi
+firstmate              fm-bootstrap.sh or libs/firstmate
+treehouse              treehouse or libs/treehouse
+no-mistakes            no-mistakes or libs/no-mistakes
+gh-axi                 gh-axi or libs/gh-axi
+chrome-devtools-axi    chrome-devtools-axi or libs/chrome-devtools-axi
+lavish-axi             lavish-axi or libs/lavish-axi
 ```
 
 The dotfiles-managed `agent-commander install <tool>` command initializes these submodules when they are listed in `.gitmodules`, then builds tools that need local build output.
+Use `agent-commander install all` to initialize and build the full pinned toolchain.
 
 ## Local Config
 

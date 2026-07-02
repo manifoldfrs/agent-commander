@@ -7,3 +7,12 @@
 [submodule "libs/firstmate"]
 	path = libs/firstmate
 	url = https://github.com/kunchenguid/firstmate.git
+[submodule "libs/no-mistakes"]
+	path = libs/no-mistakes
+	url = https://github.com/kunchenguid/no-mistakes.git
+[submodule "libs/gh-axi"]
+	path = libs/gh-axi
+	url = https://github.com/kunchenguid/gh-axi.git
+[submodule "libs/chrome-devtools-axi"]
+	path = libs/chrome-devtools-axi
+	url = https://github.com/kunchenguid/chrome-devtools-axi.git

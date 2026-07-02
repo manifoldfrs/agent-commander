@@ -10,7 +10,7 @@ usage() {
   cat <<'USAGE'
 Usage: scripts/detect-tools.sh [--strict] [--agent-commander-dir PATH]
 
-Detect firstmate, treehouse, and lavish-axi from global commands or local libs/ checkouts.
+Detect agent toolchain commands from global commands or local libs/ checkouts.
 
 Options:
   --strict                    Exit non-zero when a tool is missing.
@@ -91,6 +91,51 @@ detect_treehouse() {
   fi
 }
 
+detect_no_mistakes() {
+  local path
+  local local_dir="$AGENT_COMMANDER_DIR/libs/no-mistakes"
+
+  if path="$(command -v no-mistakes 2>/dev/null)"; then
+    mark_found "no-mistakes" "global" "$path"
+  elif [ -x "$local_dir/bin/no-mistakes" ]; then
+    mark_found "no-mistakes" "local-binary" "$local_dir/bin/no-mistakes"
+  elif [ -f "$local_dir/go.mod" ]; then
+    mark_found "no-mistakes" "local-source" "$local_dir"
+  else
+    mark_missing "no-mistakes" "expected no-mistakes command or libs/no-mistakes"
+  fi
+}
+
+detect_gh_axi() {
+  local path
+  local local_dir="$AGENT_COMMANDER_DIR/libs/gh-axi"
+
+  if path="$(command -v gh-axi 2>/dev/null)"; then
+    mark_found "gh-axi" "global" "$path"
+  elif [ -f "$local_dir/dist/bin/gh-axi.js" ]; then
+    mark_found "gh-axi" "local-build" "$local_dir/dist/bin/gh-axi.js"
+  elif [ -f "$local_dir/package.json" ]; then
+    mark_found "gh-axi" "local-source" "$local_dir"
+  else
+    mark_missing "gh-axi" "expected gh-axi command or libs/gh-axi"
+  fi
+}
+
+detect_chrome_devtools_axi() {
+  local path
+  local local_dir="$AGENT_COMMANDER_DIR/libs/chrome-devtools-axi"
+
+  if path="$(command -v chrome-devtools-axi 2>/dev/null)"; then
+    mark_found "chrome-devtools-axi" "global" "$path"
+  elif [ -f "$local_dir/dist/bin/chrome-devtools-axi.js" ]; then
+    mark_found "chrome-devtools-axi" "local-build" "$local_dir/dist/bin/chrome-devtools-axi.js"
+  elif [ -f "$local_dir/package.json" ]; then
+    mark_found "chrome-devtools-axi" "local-source" "$local_dir"
+  else
+    mark_missing "chrome-devtools-axi" "expected chrome-devtools-axi command or libs/chrome-devtools-axi"
+  fi
+}
+
 detect_lavish_axi() {
   local path
   local local_dir="$AGENT_COMMANDER_DIR/libs/lavish-axi"
@@ -109,6 +154,9 @@ detect_lavish_axi() {
 printf 'status\ttool\tsource\tdetail\n'
 detect_firstmate
 detect_treehouse
+detect_no_mistakes
+detect_gh_axi
+detect_chrome_devtools_axi
 detect_lavish_axi
 
 if [ "$STRICT" -eq 1 ] && [ "$MISSING" -ne 0 ]; then

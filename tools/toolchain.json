@@ -30,6 +30,46 @@
       ]
     },
     {
+      "name": "no-mistakes",
+      "upstream": "https://github.com/kunchenguid/no-mistakes.git",
+      "pinnedRevision": "78c7e606ce598491d50e72bf532045f4684ca8b7",
+      "localPath": "libs/no-mistakes",
+      "globalCommands": [
+        "no-mistakes"
+      ],
+      "localIndicators": [
+        "bin/no-mistakes",
+        "go.mod",
+        "cmd/no-mistakes/main.go"
+      ]
+    },
+    {
+      "name": "gh-axi",
+      "upstream": "https://github.com/kunchenguid/gh-axi.git",
+      "pinnedRevision": "4dea8ab8858ca5585e15770d1caf5d8e35128e4f",
+      "localPath": "libs/gh-axi",
+      "globalCommands": [
+        "gh-axi"
+      ],
+      "localIndicators": [
+        "package.json",
+        "dist/bin/gh-axi.js"
+      ]
+    },
+    {
+      "name": "chrome-devtools-axi",
+      "upstream": "https://github.com/kunchenguid/chrome-devtools-axi.git",
+      "pinnedRevision": "27e291a28164410a6b9b80796b3c4c490bca0fa3",
+      "localPath": "libs/chrome-devtools-axi",
+      "globalCommands": [
+        "chrome-devtools-axi"
+      ],
+      "localIndicators": [
+        "package.json",
+        "dist/bin/chrome-devtools-axi.js"
+      ]
+    },
+    {
       "name": "lavish-axi",
       "upstream": "https://github.com/kunchenguid/lavish-axi.git",
       "pinnedRevision": "445022e9ce81862521cfaf4d72dcb271d8b38e08",
