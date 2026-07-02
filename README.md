@@ -16,6 +16,7 @@ agent-commander/
 |   |-- chrome-devtools-axi/
 |   `-- lavish-axi/
 |-- scripts/
+|-- bin/
 |-- config/
 |-- data/
 |-- state/
@@ -58,6 +59,7 @@ lavish-axi             lavish-axi or libs/lavish-axi
 
 The dotfiles-managed `agent-commander install <tool>` command initializes these submodules when they are listed in `.gitmodules`, then builds tools that need local build output.
 Use `agent-commander install all` to initialize and build the full pinned toolchain.
+It also writes generated command shims into `bin/`; run `agent-commander shims` to refresh them without reinstalling tools.
 
 ## Local Config
 
@@ -80,6 +82,7 @@ config/
 data/
 state/
 projects/
+bin/
 .no-mistakes/
 /treehouse/
 libs/*/node_modules/

@@ -3,8 +3,10 @@ config/
 data/
 state/
 projects/
+bin/
 .no-mistakes/
 /treehouse/
 libs/*/node_modules/
 logs/
 *.log
+treehouse/
