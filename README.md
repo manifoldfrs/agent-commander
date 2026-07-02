@@ -19,7 +19,7 @@ agent-commander/
 `-- projects/
 ```
 
-`libs/` is reserved for pinned upstream tool checkouts when tools are not installed globally. Prefer git submodules or pinned clones there over copying upstream tool scripts into dotfiles.
+`libs/` is reserved for pinned upstream tool checkouts when tools are not installed globally. These entries are Git submodules pinned by this repo so personal and work laptops use the same tool revisions without copying upstream tool scripts into dotfiles.
 
 ## Toolchain
 
@@ -29,7 +29,13 @@ The tracked toolchain manifest records the current upstream source and pinned re
 tools/toolchain.json
 ```
 
-Checkpoint 2 does not clone or install tools. It adds detection logic that prefers global commands and falls back to local checkouts under `libs/`:
+Initialize pinned tool checkouts after cloning this repo:
+
+```sh
+git submodule update --init libs/firstmate libs/treehouse libs/lavish-axi
+```
+
+The detector prefers global commands and falls back to local submodule checkouts under `libs/`:
 
 ```sh
 scripts/detect-tools.sh
@@ -43,6 +49,8 @@ firstmate   fm-bootstrap.sh or libs/firstmate
 treehouse   treehouse or libs/treehouse
 lavish-axi  lavish-axi or libs/lavish-axi
 ```
+
+The dotfiles-managed `agent-commander install <tool>` command initializes these submodules when they are listed in `.gitmodules`, then builds tools that need local build output.
 
 ## Local Config
 
@@ -66,7 +74,7 @@ data/
 state/
 projects/
 .no-mistakes/
-treehouse/
+/treehouse/
 libs/*/node_modules/
 logs/
 *.log

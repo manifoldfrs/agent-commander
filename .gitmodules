@@ -1,0 +1,9 @@
+[submodule "libs/lavish-axi"]
+	path = libs/lavish-axi
+	url = https://github.com/kunchenguid/lavish-axi.git
+[submodule "libs/treehouse"]
+	path = libs/treehouse
+	url = https://github.com/kunchenguid/treehouse.git
+[submodule "libs/firstmate"]
+	path = libs/firstmate
+	url = https://github.com/kunchenguid/firstmate.git

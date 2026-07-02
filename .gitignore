@@ -4,7 +4,7 @@ data/
 state/
 projects/
 .no-mistakes/
-treehouse/
+/treehouse/
 libs/*/node_modules/
 logs/
 *.log

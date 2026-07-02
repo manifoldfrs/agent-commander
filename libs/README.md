@@ -10,6 +10,10 @@ libs/treehouse/
 libs/lavish-axi/
 ```
 
-Use git submodules or pinned clones for these directories. Do not copy upstream tool scripts into dotfiles.
+Use Git submodules for these directories. Do not copy upstream tool scripts into dotfiles.
 
-The current reference URLs and revisions are tracked in `../tools/toolchain.json`.
+```sh
+git submodule update --init libs/firstmate libs/treehouse libs/lavish-axi
+```
+
+The current reference URLs and revisions are tracked in `../tools/toolchain.json` and pinned by the superproject gitlinks.
