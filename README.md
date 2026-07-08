@@ -16,6 +16,7 @@ agent-commander/
 |   |-- chrome-devtools-axi/
 |   `-- lavish-axi/
 |-- scripts/
+|-- docs/
 |-- bin/
 |-- config/
 |-- data/
@@ -116,3 +117,7 @@ logs/
 ```
 
 Do not Stow this repository. Use it as the operating home for agent tools and keep reproducible shell/editor setup in `dotfiles`.
+
+## Runbooks
+
+- `docs/payment-debug-loop.md` - multi-service payment debugging loop: contract, E2E repro, logs/workflow history, direct vendor probe, focused fix, regression test.
